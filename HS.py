@@ -9,9 +9,9 @@ pool=[] #每次抓到的游戏名称都会放进pool列表里，用来去重
 document = 'hs' #设定爬取的数据存的excel的档案名称
 wb = xlwt.Workbook() #创建excel
 ws = wb.add_sheet("TopSellers") #在excel新增一个sheet页
-ws.write(0,0,'hs')#参数
-ws.write(0,1,'分数') #在excel第一行第二列先行写入'Game Title'
-ws.write(0,2,'姓名') #在excel第一行第三列先行写入'Released Date'
+ws.write(0,0,'hs')#类型
+ws.write(0,1,'分数') #在excel第一行第二列先行写入'分数'
+ws.write(0,2,'姓名') #在excel第一行第三列先行写入'姓名'
 f = open("hs.txt",'w')#用于写入成绩，然后一键上传成绩
 root = os.getcwd() #获取当前工作路径
 date = '' #获取当前日期 格式为yyyymmdd
@@ -44,7 +44,7 @@ while page<total_pages:
             ws.write(count,1,fenshu) #往excel写入游戏分数
             ws.write(count,2,game_name.string) #往excel写入第一名
             name=game_name.string
-            if game_name.string!='xxxx':
+            if game_name.string!='Capxax':
                 print(Str.red.BLACK.Bold('第%s关 .分数：%s 需要更新' % (page,fenshu))) #突出非自己名字显示红色
 
             count += 1 #每遍历一次 count 变量 +1 ，用来排序写入excel里的顺序
